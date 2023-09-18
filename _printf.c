@@ -16,26 +16,32 @@ va_start(ptr, format);
 for (i = 0; format[i] != '\0'; i++)
 {
 token[k++] = format[i];
-if (format[i + 1] == '%' || format[i + 1] == '\0') 
+if (format[i + 1] == '%' || format[i + 1] == '\0')
+
 {
 token[k] = '\0';
 k = 0;
-if (token[0] != '%') 
+if (token[0] != '%')
+
 {
 write(1, token, strl + 1);
 }
-else 
+else
+
 {
 int j = 1;
 char ch1 = 0;
-while ((ch1 = token[j++]) < 58) 
+while ((ch1 = token[j++]) < 58)
+
 {
 }
-if (ch1 == 'i' || ch1 == 'd' || ch1 == 'u' || ch1 == 'h') 
+if (ch1 == 'i' || ch1 == 'd' || ch1 == 'u' || ch1 == 'h')
+
 {
 putprin(token, va_arg(ptr, int), 'i', NULL);
 }
-else if (ch1 == 'c') 
+else if (ch1 == 'c')
+
 {
 putprin(token, va_arg(ptr, int), 'c', NULL);
 }
@@ -47,7 +53,8 @@ else if (ch1 == '%')
 {
 putprin(token, va_arg(ptr, int), 'c', NULL);
 }
-else 
+else
+
 {
 putprin('\0', 0, 's', token);
 }
