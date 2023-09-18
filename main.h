@@ -7,8 +7,6 @@
 #include <stddef.h>
 
 int _printf(const char *format, ...);
-int print_string(char * str);
-int print_char(char ch);
 char itoa_generic (char* u8ptrbuf, int u32int_value);
 void putprin(char *t ,long double dig, char fly, char *ss);
 
