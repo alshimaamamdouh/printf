@@ -31,8 +31,11 @@ write(1, &ss[first], 1);
 }
 break;
 }
+if (t != 0 )
+{
 for (temp = 2 ; t[temp] != '\0'; temp++)
 {
 write(1, &t[temp], 1);
+}
 }
 }

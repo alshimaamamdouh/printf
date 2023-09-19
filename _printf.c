@@ -16,7 +16,7 @@ va_start(ptr, format);
 for (i = 0; format[i] != '\0'; i++)
 {
 token[k++] = format[i];
-if (format[i + 1] == '%' || format[i + 1] == '\0')
+if ((format[i + 1] == '%' && k != 1) || format[i + 1] == '\0')
 
 {
 token[k] = '\0';
@@ -57,14 +57,10 @@ else if (ch1 == 's')
 {
 putprin(token, 0, 's', va_arg(ptr, char*));
 }
-else if (ch1 == '%')
-{
-putprin(token, va_arg(ptr, int), 'c', NULL);
-}
 else
 
 {
-putprin('\0', 0, 's', token);
+putprin((void*)0 ,0,'s',token);
 }
 }
 }
