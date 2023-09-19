@@ -38,7 +38,15 @@ while ((ch1 = token[j++]) < 58)
 if (ch1 == 'i' || ch1 == 'd' || ch1 == 'u' || ch1 == 'h')
 
 {
-putprin(token, va_arg(ptr, int), 'i', NULL);
+double ui = va_arg(ptr, int);
+if (ch1 == 'u')
+{
+if (ui < 0)
+{
+ui = ui * -1;   
+}
+}
+putprin(token ,ui,'i', NULL );
 }
 else if (ch1 == 'c')
 

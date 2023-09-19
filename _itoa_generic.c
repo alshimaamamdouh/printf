@@ -12,6 +12,12 @@ char itoa_generic(char *u8ptrbuf, int u32int_value)
 {
 char index = 0, num_digits = 0;
 int tempVariable = u32int_value;
+if (u32int_value < 0)
+{
+u8ptrbuf[0] = '-';
+num_digits = itoa_generic(&u8ptrbuf[1], (u32int_value * -1));
+return (num_digits+1);
+}
 if (u32int_value == 0)
 {
 num_digits = 1;

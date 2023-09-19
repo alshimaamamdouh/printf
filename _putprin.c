@@ -13,7 +13,7 @@ void putprin(char *t, long double dig, char fly, char *ss)
 {
 int temp, first;
 
-char num, s[10];
+char num, s[50];
 int x = (int) dig;
 switch (fly)
 {
