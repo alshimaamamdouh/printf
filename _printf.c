@@ -12,6 +12,8 @@ int _printf(const char *format, ...)
 int n = 0, num_of_ch = 0;
 char *s;
 char ch;
+char num, sa[50];
+int dig;
 va_list args;
 
 va_start(args, format);
@@ -45,6 +47,9 @@ num_of_ch = num_of_ch + print_string(s);
 }
 else if (format[n] == 'i' || format[n] == 'd')
 {
+dig = va_arg(args, int);
+num = itoa_generic(sa, dig);
+num_of_ch += write(1, sa, num);
 }
 else
 {
