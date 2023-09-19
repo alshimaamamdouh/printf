@@ -10,7 +10,7 @@
 int _printf(const char *format, ...)
 {
 char token[1000];
-int strl = 0, k = 0, i, percentage_counter = 0;
+int strl = 0, k = 0, i, strl2 = 0;
 va_list ptr;
 
 if (format == NULL)
@@ -25,14 +25,10 @@ if ((format[i + 1] == '%' && k != 1) || format[i + 1] == '\0')
 {
 token[k] = '\0';
 k = 0;
-if(format[i + 1] == '%')
-{
-percentage_counter++;
-}
 if (token[0] != '%')
 
 {
-write(1, token, strl + 1);
+strl = strl + write(1, token, strl2 + 1);
 }
 else
 
@@ -54,28 +50,28 @@ if (ui < 0)
 ui = 4294967295 + ui + 1;  
 }
 }
-putprin(token ,ui,'i', NULL );
+strl = strl + putprin(token ,ui,'i', NULL );
 }
 else if (ch1 == 'c')
 
 {
-putprin(token, va_arg(ptr, int), 'c', NULL);
+strl = strl + putprin(token, va_arg(ptr, int), 'c', NULL);
 }
 else if (ch1 == 's') 
 {
-putprin(token, 0, 's', va_arg(ptr, char*));
+strl = strl + putprin(token, 0, 's', va_arg(ptr, char*));
 if(token == 0 || va_arg(ptr, char*) == 0)
 return (-1);
 }
 else
 
 {
-putprin((void*)0 ,0,'s',token);
+strl = strl + putprin((void*)0 ,0,'s',token);
 }
 }
 }
-strl = i + 1;
+strl2 = i + 1;
 }
 va_end(ptr);
-return (strl - percentage_counter);
+return (strl);
 }
