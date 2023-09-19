@@ -1,0 +1,22 @@
+#include "main.h"
+/***/
+int (*get_sp_func(char *s))(char *)
+{
+sp_t sps[] = {
+{"%", print_persentage},
+{"c", print_char},
+{"s", print_string},
+{"i", print_integer},
+{"d", print_integer}
+};
+int i;
+
+i = 0;
+while (i < 5)
+{
+if (*(sps[i].sp) == *s)
+return (sps[i].f);
+i++;
+}
+return (NULL);
+}
