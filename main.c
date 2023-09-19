@@ -1,6 +1,7 @@
 #include <limits.h>
 #include <stdio.h>
 #include "main.h"
+#include <string.h>
 
 /**
  * main - Entry point
@@ -11,6 +12,13 @@ int main(void)
 {
     int len;
     int len2;
+    int i;
+    char ar[1000];
+    for (i = 0; i < 999; i++)
+    {
+	    ar[i]='g';
+    }
+    _printf(ar);
 len = _printf("Let's try to printf a simple sentence.\n");
     len2 = printf("Let's try to printf a simple sentence.\n");
     _printf("Length:[%d, %i]\n", len, len);
