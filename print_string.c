@@ -20,7 +20,6 @@ return (str_len);
 }
 while (*(str + str_len) != '\0')
 str_len++;
-str_len = strlen(str);
 write(1, str, str_len);
 return (str_len);
 }
