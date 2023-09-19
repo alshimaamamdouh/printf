@@ -6,8 +6,8 @@
  *
  *Return: 1
 */
-int print_char(char *ch)
+int print_char(char ch)
 {
-write(1, ch, 1);
+write(1, &ch, 1);
 return (1);
 }
