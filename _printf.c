@@ -10,8 +10,12 @@
 int _printf(const char *format, ...)
 {
 char token[1000];
-int strl = 0, k = 0, i;
+int strl = 0, k = 0, i, percentage_counter = 0;
 va_list ptr;
+
+if (format == NULL)
+return (-1);
+
 va_start(ptr, format);
 for (i = 0; format[i] != '\0'; i++)
 {
@@ -21,6 +25,10 @@ if ((format[i + 1] == '%' && k != 1) || format[i + 1] == '\0')
 {
 token[k] = '\0';
 k = 0;
+if(format[i + 1] == '%')
+{
+percentage_counter++;
+}
 if (token[0] != '%')
 
 {
@@ -56,6 +64,8 @@ putprin(token, va_arg(ptr, int), 'c', NULL);
 else if (ch1 == 's') 
 {
 putprin(token, 0, 's', va_arg(ptr, char*));
+if(token == 0 || va_arg(ptr, char*) == 0)
+return (-1);
 }
 else
 
@@ -67,5 +77,5 @@ putprin((void*)0 ,0,'s',token);
 strl = i + 1;
 }
 va_end(ptr);
-return (strl);
+return (strl - percentage_counter);
 }

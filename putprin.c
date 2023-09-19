@@ -25,9 +25,12 @@ case 'c':
 write(1, &x, 1);
 break;
 case 's':
+if (ss != 0)
+{
 for (first = 0 ; ss[first] != '\0'; first++)
 {
 write(1, &ss[first], 1);
+}
 }
 break;
 }
