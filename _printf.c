@@ -11,7 +11,7 @@ int _printf(const char *format, ...)
 {
 int n = 0, num_of_ch = 0;
 char *s;
-char ch;
+char *ch;
 va_list args;
 
 va_start(args, format);
@@ -35,7 +35,7 @@ num_of_ch += write(1, &format[n], 1);
 }
 else if (format[n] == 'c')
 {
-ch = va_arg(args, int);
+ch = va_arg(args, char *);
 num_of_ch = num_of_ch + print_char(ch);
 }
 else if (format[n] == 's')
