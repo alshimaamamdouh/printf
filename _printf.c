@@ -43,7 +43,7 @@ if (ch1 == 'u')
 {
 if (ui < 0)
 {
-ui = ui * -1;   
+ui = 4294967295 + ui + 1;  
 }
 }
 putprin(token ,ui,'i', NULL );
