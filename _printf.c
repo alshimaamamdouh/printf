@@ -9,56 +9,73 @@
 */
 int _printf(const char *format, ...)
 {
-int n = 0, num_of_ch = 0;
-char *s;
-char ch;
-char num, sa[50];
-int dig;
-va_list args;
+char token[1000];
+int strl = 0, k = 0, i, percentage_counter = 0;
+va_list ptr;
 
-va_start(args, format);
 if (format == NULL)
-return (-1); ;
-while (format && format[n])
-{
-if (format[n] == '\0')
-break;
-if (format[n] != '%')
-{
-num_of_ch += write(1, &format[n], 1);
-}
-else if (format[n + 1])
-{
-n = n + 1;
-if (format[n] == '%')
-{
-num_of_ch += write(1, &format[n], 1);
+return (-1);
 
-}
-else if (format[n] == 'c')
+va_start(ptr, format);
+for (i = 0; format[i] != '\0'; i++)
 {
-ch = va_arg(args, int);
-num_of_ch = num_of_ch + print_char(ch);
-}
-else if (format[n] == 's')
+token[k++] = format[i];
+if ((format[i + 1] == '%' && k != 1) || format[i + 1] == '\0')
+
 {
-s = va_arg(args, char *);
-num_of_ch = num_of_ch + print_string(s);
-}
-else if (format[n] == 'i' || format[n] == 'd')
+token[k] = '\0';
+k = 0;
+if(format[i + 1] == '%')
 {
-dig = va_arg(args, int);
-num = itoa_generic(sa, dig);
-num_of_ch += write(1, sa, num);
+percentage_counter++;
+}
+if (token[0] != '%')
+
+{
+write(1, token, strl + 1);
 }
 else
+
 {
-num_of_ch += write(1, &format[n - 1], 1);
-num_of_ch += write(1, &format[n], 1);
+int j = 1;
+char ch1 = 0;
+while ((ch1 = token[j++]) < 58)
+
+{
+}
+if (ch1 == 'i' || ch1 == 'd' || ch1 == 'u' || ch1 == 'h')
+
+{
+double ui = va_arg(ptr, int);
+if (ch1 == 'u')
+{
+if (ui < 0)
+{
+ui = 4294967295 + ui + 1;  
 }
 }
-n++;
+putprin(token ,ui,'i', NULL );
 }
-va_end(args);
-return (num_of_ch);
+else if (ch1 == 'c')
+
+{
+putprin(token, va_arg(ptr, int), 'c', NULL);
+}
+else if (ch1 == 's') 
+{
+putprin(token, 0, 's', va_arg(ptr, char*));
+if(token == 0 || va_arg(ptr, char*) == 0)
+return (-1);
+}
+else
+
+{
+putprin((void*)0 ,0,'s',token);
+}
+}
+}
+strl = i + 1;
+}
+va_end(ptr);
+return (strl - percentage_counter);
 }
