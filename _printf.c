@@ -54,9 +54,20 @@ num_of_ch += write(1, sa, num);
 else if (format[n] == 'b')
 {
 dig = va_arg(args, int);
+if (dig == 0)
+{
+sa[0] = '0';
+num_of_ch += write(1, sa, 1);
+}
+else if (dig < 0)
+{
+return (-1);
+}
+else
+{
 num =(char) decToBinary(dig, sa);
 num_of_ch += write(1, sa, num);
-
+}
 }
 else
 {

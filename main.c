@@ -44,7 +44,11 @@ len = _printf("Let's try to printf a simple sentence.\n");
     printf("bin:[%b]\n", 305419896);
     _printf("%b\n", 98);
     printf("%b\n", 98);
-
+    _printf("%b\n",-98);
+    _printf("%b\n", 0);
+    _printf("%b\n", NULL);
+    _printf("%b\n", 'x');
+    _printf("%b\n", "1234");
 
 
     return (0);
