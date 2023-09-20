@@ -14,7 +14,7 @@ char *s;
 char ch;
 char num, sa[50];
 int dig;
-long int dig2;
+double dig2;
 va_list args;
 
 va_start(args, format);
@@ -54,13 +54,13 @@ num_of_ch += write(1, sa, num);
 }
 else if (format[n] == 'b')
 {
-dig2 = va_arg(args, unsigned long int);
+dig2 = va_arg(args,long int);
 if (dig2 == 0)
 {
 sa[0] = '0';
 num_of_ch += write(1, sa, 1);
 }
-else if (dig2 < 0 || dig2 > 0xffffffff)
+else if (dig2 < 0)
 {
 return (-1);
 }
