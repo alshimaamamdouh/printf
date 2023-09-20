@@ -49,7 +49,9 @@ len = _printf("Let's try to printf a simple sentence.\n");
     _printf("%b\n", NULL);
     _printf("%b\n", 'x');
     _printf("%b\n", "1234");
-
+  
+    _printf("%b\n", 1.2);
+    _printf("%b\n", .2);
 
     return (0);
 }

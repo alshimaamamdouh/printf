@@ -63,6 +63,10 @@ else if (dig < 0)
 {
 return (-1);
 }
+else if ( n != 1 || format[0] == 0)
+{
+return (-1);
+}
 else
 {
 num = (char) decToBinary(dig, sa);
