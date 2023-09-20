@@ -1,4 +1,5 @@
 #include "main.h"
+#include <stdio.h>
 /**
  *_printf - produces output according to a format.
  *
@@ -53,7 +54,7 @@ num_of_ch += write(1, sa, num);
 }
 else if (format[n] == 'b')
 {
-dig = va_arg(args, int);
+dig = va_arg(args,unsigned int);
 if (dig == 0)
 {
 sa[0] = '0';
@@ -65,7 +66,8 @@ return (-1);
 }
 else
 {
-num =(char) decToBinary(dig, sa);
+	printf("track:%d\n",dig);
+num = (char) decToBinary(dig, sa);
 num_of_ch += write(1, sa, num);
 }
 }
