@@ -54,7 +54,7 @@ num_of_ch += write(1, sa, num);
 }
 else if (format[n] == 'b')
 {
-dig2 = va_arg(args, long int);
+dig2 = va_arg(args, unsigned long int);
 if (dig2 == 0)
 {
 sa[0] = '0';
