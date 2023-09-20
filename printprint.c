@@ -1,2 +1,2 @@
 #include "main.h"
-void printprint();
+void printprint
