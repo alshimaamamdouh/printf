@@ -40,6 +40,10 @@ len = _printf("Let's try to printf a simple sentence.\n");
     printf("String:[%s]\n", "I am a string !");
     _printf("String:[%s%s]\n", "I am a string !", "second string !");
     printf("String:[%s%s]\n", "I am a string !", "second string !");
+    _printf("bin:[%b]\n", 305419896);
+    printf("bin:[%b]\n", 305419896);
+    _printf("%b\n", 98);
+    printf("%b\n", 98);
 
 
 

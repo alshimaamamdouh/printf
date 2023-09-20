@@ -51,6 +51,13 @@ dig = va_arg(args, int);
 num = itoa_generic(sa, dig);
 num_of_ch += write(1, sa, num);
 }
+else if (format[n] == 'b')
+{
+dig = va_arg(args, int);
+num =(char) decToBinary(dig, sa);
+num_of_ch += write(1, sa, num);
+
+}
 else
 {
 num_of_ch += write(1, &format[n - 1], 1);
