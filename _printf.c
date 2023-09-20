@@ -9,12 +9,12 @@
 */
 int _printf(const char *format, ...)
 {
-int n = 0, num_of_ch = 0, num1 = 0;
+int n = 0, num_of_ch = 0;
 char *s;
 char ch;
-char num, sa[50];
+char num, sa[50], num1;
 int dig;
-double dig2;
+int dig2;
 va_list args;
 
 va_start(args, format);
@@ -54,7 +54,7 @@ num_of_ch += write(1, sa, num);
 }
 else if (format[n] == 'b')
 {
-dig2 = va_arg(args,long int);
+dig2 = va_arg(args,unsigned int);
 if (dig2 == 0)
 {
 sa[0] = '0';
