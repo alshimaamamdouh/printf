@@ -9,11 +9,12 @@
 */
 int _printf(const char *format, ...)
 {
-int n = 0, num_of_ch = 0;
+int n = 0, num_of_ch = 0, num1 = 0;
 char *s;
 char ch;
 char num, sa[50];
 int dig;
+long int dig2;
 va_list args;
 
 va_start(args, format);
@@ -53,20 +54,20 @@ num_of_ch += write(1, sa, num);
 }
 else if (format[n] == 'b')
 {
-dig = va_arg(args, unsigned int);
-if (dig == 0)
+dig2 = va_arg(args, long int);
+if (dig2 == 0)
 {
 sa[0] = '0';
 num_of_ch += write(1, sa, 1);
 }
-else if (dig < 0)
+else if (dig2 < 0 || dig2 > 0xffffffff)
 {
 return (-1);
 }
 else
 {
-num = (char) decToBinary(dig, sa);
-num_of_ch += write(1, sa, num);
+num1 =  decToBinary(dig2, sa);
+num_of_ch += write(1, sa, num1);
 }
 }
 else
