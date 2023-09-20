@@ -7,6 +7,7 @@
  *@fly: input three
  *@ss: input four
  *
+ * Return: char number
  */
 
 int putprin(char *t, long double dig, char fly, char *ss)

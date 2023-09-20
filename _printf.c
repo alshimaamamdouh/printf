@@ -1,6 +1,7 @@
 #include "main.h"
 /**
  *_printf - produces output according to a format.
+ *
  *@format: string
  *
  *Return: the number of characters printed
@@ -8,45 +9,56 @@
 */
 int _printf(const char *format, ...)
 {
-unsigned char token[1000];
-int strl = 0, k = 0, i, strl2 = 0, ch1 = 0, j = 1;
-va_list ptr;
-va_start(ptr, format);
-for (i = 0; ((format != NULL) && (format[i] != '\0')); strl2 = i + 1, i++)
+int n = 0, num_of_ch = 0;
+char *s;
+char ch;
+char num, sa[50];
+int dig;
+va_list args;
+
+va_start(args, format);
+if (format == NULL)
+return (-1); ;
+while (format && format[n])
 {
-token[k++] = format[i];
-if ((format[i + 1] == '%' && k != 1) || format[i + 1] == '\0')
+if (format[n] == '\0')
+break;
+if (format[n] != '%')
 {
-token[k] = '\0';
-k = 0;
-if (token[0] != '%')
-strl = strl + write(1, token, strl2 + 1);
+num_of_ch += write(1, &format[n], 1);
+}
+else if (format[n + 1])
+{
+n = n + 1;
+if (format[n] == '%')
+{
+num_of_ch += write(1, &format[n], 1);
+
+}
+else if (format[n] == 'c')
+{
+ch = va_arg(args, int);
+num_of_ch = num_of_ch + print_char(ch);
+}
+else if (format[n] == 's')
+{
+s = va_arg(args, char *);
+num_of_ch = num_of_ch + print_string(s);
+}
+else if (format[n] == 'i' || format[n] == 'd')
+{
+dig = va_arg(args, int);
+num = itoa_generic(sa, dig);
+num_of_ch += write(1, sa, num);
+}
 else
 {
-j = 1;
-while ((ch1 = token[j++]) < 58)
-;
-if (ch1 == 'i' || ch1 == 'd' || ch1 == 'u' || ch1 == 'h')
-{
-double ui = va_arg(ptr, int);
-if (ch1 == 'u')
-{
-if (ui < 0)
-ui = 4294967295 + ui + 1;
-}
-strl = strl + putprin((char *)token, ui, 'i', NULL);
-}
-else if (ch1 == 'c')
-strl = strl + putprin((char *)token, va_arg(ptr, int), 'c', NULL);
-else if (ch1 == 's')
-strl = strl + putprin((char *)token, 0, 's', va_arg(ptr, char *));
-else
-strl = strl + putprin((void *)0, 0, 's', (char *)token);
+num_of_ch += write(1, &format[n - 1], 1);
+num_of_ch += write(1, &format[n], 1);
 }
 }
+n++;
 }
-if (token == 0 || va_arg(ptr, char*) == 0 || format == NULL)
-return (-1);
-va_end(ptr);
-return (strl);
+va_end(args);
+return (num_of_ch);
 }
