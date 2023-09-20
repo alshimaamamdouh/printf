@@ -19,6 +19,12 @@ int main(void)
 	    ar[i]='g';
     }
     _printf(ar);
+    _printf(NULL);
+    _printf("%s\n",NULL);
+    _printf("%c\n",NULL);
+    printf("%c\n",NULL);
+    printf("css%ccs%scscscs\n", 'T',"Test");
+    _printf("%\n"); 
 len = _printf("Let's try to printf a simple sentence.\n");
     len2 = printf("Let's try to printf a simple sentence.\n");
     _printf("Length:[%d, %i]\n", len, len);
@@ -33,6 +39,7 @@ len = _printf("Let's try to printf a simple sentence.\n");
     _printf("String:[%s]\n", "I am a string !");
     printf("String:[%s]\n", "I am a string !");
     _printf("String:[%s%s]\n", "I am a string !", "second string !");
+    printf("String:[%s%s]\n", "I am a string !", "second string !");
 
    _printf("String:[%s%s]\n", "I am a string !", "second string !");
     printf("String:[%s %s]\n", "I am a string !", "second string !");
