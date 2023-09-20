@@ -1,7 +1,6 @@
 #include "main.h"
 /**
  *_printf - produces output according to a format.
- *
  *@format: string
  *
  *Return: the number of characters printed
@@ -9,68 +8,43 @@
 */
 int _printf(const char *format, ...)
 {
-char token[1000];
-int strl = 0, k = 0, i, strl2 = 0;
+unsigned char token[1000];
+int strl = 0, k = 0, i, strl2 = 0, ch1 = 0, j = 0;
 va_list ptr;
-
-if (format == NULL)
-return (-1);
-
 va_start(ptr, format);
-for (i = 0; format[i] != '\0'; i++)
+for (i = 0; ((format != NULL) && (format[i] != '\0')); strl2 = i + 1, i++)
 {
 token[k++] = format[i];
 if ((format[i + 1] == '%' && k != 1) || format[i + 1] == '\0')
-
 {
 token[k] = '\0';
 k = 0;
 if (token[0] != '%')
-
-{
 strl = strl + write(1, token, strl2 + 1);
-}
 else
 
 {
-int j = 1;
-char ch1 = 0;
 while ((ch1 = token[j++]) < 58)
-
-{
-}
+;
 if (ch1 == 'i' || ch1 == 'd' || ch1 == 'u' || ch1 == 'h')
 
 {
 double ui = va_arg(ptr, int);
-if (ch1 == 'u')
-{
 if (ui < 0)
-{
-ui = 4294967295 + ui + 1;  
-}
-}
-strl = strl + putprin(token ,ui,'i', NULL );
+ui = 4294967295 + ui + 1;
+strl = strl + putprin((char *)token, ui, 'i', NULL);
 }
 else if (ch1 == 'c')
+strl = strl + putprin((char *)token, va_arg(ptr, int), 'c', NULL);
+else if (ch1 == 's')
 
 {
-strl = strl + putprin(token, va_arg(ptr, int), 'c', NULL);
-}
-else if (ch1 == 's') 
-{
-strl = strl + putprin(token, 0, 's', va_arg(ptr, char*));
-if(token == 0 || va_arg(ptr, char*) == 0)
-return (-1);
+strl = strl + putprin((char *)token, 0, 's', va_arg(ptr, char *));
 }
 else
-
-{
-strl = strl + putprin((void*)0 ,0,'s',token);
+strl = strl + putprin((void *)0, 0, 's', (char *)token);
 }
 }
-}
-strl2 = i + 1;
 }
 va_end(ptr);
 return (strl);
