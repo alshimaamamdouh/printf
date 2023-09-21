@@ -30,9 +30,10 @@ if (format[n] == '%')
 {
 num_of_ch += write(1, &format[n], 1);
 }
+else if (format[n] != '%') 
+{
 sp_result = get_sp_func(format[n]);
 if (sp_result != NULL)
-{
 num_of_ch += sp_result(args);
 }
 else
