@@ -26,6 +26,8 @@ num_of_ch += write(1, &format[n], 1);
 else
 {
 n++;
+while (format[n] == ' ')
+n++;
 if (format[n] == '%')
 {
 num_of_ch += write(1, &format[n], 1);
