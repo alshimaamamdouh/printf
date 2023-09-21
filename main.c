@@ -1,8 +1,6 @@
 #include "main.h"
 #include <limits.h>
 #include <stdio.h>
-#include "main.h"
-
 /**
  * main - Entry point
  *
@@ -10,6 +8,7 @@
  */
 int main(void)
 {
+  int len;
   char *str = "kkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkk";
 _printf("A char inside a sentence: %c. Did it work?\n", 'F');
 _printf("Let'see if the cast is correctly done: %c. Did it work?\n", 48);
@@ -27,15 +26,14 @@ _printf("css%ccs%scscscs", 'T', "Test");
 _printf(str);
 
 _printf("man gcc:\n%s", str);
-_printf(NULL);
-
-_printf("%c", '\0');
-
+len = _printf(NULL);
+printf("len = %d",len);
+len = _printf("%c", '\0');
+ printf("len = %d",len);
  _printf("%");
 
 _printf("%!\n");
 
 _printf("%K\n");
-
 return (0);
 }
