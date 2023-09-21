@@ -6,8 +6,9 @@
  *
  *Return: 1
 */
-int print_char(char ch)
+int print_char(va_list args)
 {
+char ch = va_arg(args, int);
 write(1, &ch, 1);
 return (1);
 }

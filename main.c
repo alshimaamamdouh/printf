@@ -41,8 +41,11 @@ int main(void)
     _printf("String:[%s%s]\n", "I am a string !", "second string !");
     printf("String:[%s%s]\n", "I am a string !", "second string !");
     _printf("bin:%b\n", 305419896);
+    
     _printf("%b\n", 1024);
+   
     _printf("%b\n",-1024);
+  
     _printf("%b\n", 0);
 
    _printf("There is %b bytes in %b KB\n", 1024, 1);
