@@ -1,11 +1,19 @@
-#include "main.h"
+#include "main"
 /**
- *print_string - prints string and return length of string
+ * print_string - Print a string to the standard output.
  *
- *@str: pointer to char which needs to print
+ * This function takes a `va_list` argument `args` and retrieves a pointer to
+ *a null-terminated string from it. It then prints the string
+ *to the standard output using the `write` function.
  *
- *Return: returns length of string
-*/
+ * If the provided string is `NULL`
+ *the function prints the string "(null)" instead.
+ *
+ *@args: A `va_list` containing the string to be printed.
+ *
+ *Return: The number of characters printed (including the null terminator)
+ *or -1 if there was an error.
+ */
 int print_string(va_list args)
 {
 char *str = va_arg(args, char *);

@@ -2,7 +2,7 @@
 /**
  *print_char - prints char
  *
- *@ch: char which needs to print
+ *@args: char which needs to print
  *
  *Return: 1
 */
