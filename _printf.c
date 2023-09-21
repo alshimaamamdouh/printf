@@ -14,7 +14,7 @@ char *s;
 char ch;
 char num, sa[50], num1;
 int dig;
-int dig2;
+unsigned int dig2;
 va_list args;
 
 va_start(args, format);
@@ -55,20 +55,8 @@ num_of_ch += write(1, sa, num);
 else if (format[n] == 'b')
 {
 dig2 = va_arg(args,unsigned int);
-if (dig2 == 0)
-{
-sa[0] = '0';
-num_of_ch += write(1, sa, 1);
-}
-else if (dig2 < 0)
-{
-return (-1);
-}
-else
-{
 num1 =  decToBinary(dig2, sa);
 num_of_ch += write(1, sa, num1);
-}
 }
 else
 {
