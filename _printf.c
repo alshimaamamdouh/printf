@@ -23,7 +23,7 @@ if (format[n] != '%')
 {
 num_of_ch += write(1, &format[n], 1);
 }
-else
+else if (format[n + 1])
 {
 n++;
 while (format[n] == ' ')
