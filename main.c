@@ -6,7 +6,7 @@ int main(void)
 unsigned int ui;
 long int l, res;
 l = UINT_MAX + 1024;
-res = (long int)INT_MAX * 2;
+res = (unsigned int)INT_MAX * 2;
 ui = (unsigned int)INT_MAX + 1024;
 _printf("Unsigned:[%u]\n", ui);
     printf("Unsigned:[%u]\n", ui);
@@ -30,5 +30,7 @@ _printf("Unsigned:[%u]\n", ui);
     printf("%x\n", l);
     _printf("%x + %x = %x\n", INT_MAX, INT_MAX, res);
     printf("%x + %x = %x\n", INT_MAX, INT_MAX, res);
+    _printf("uuoxxX%xuoXo\n", 1024);
+    printf("uuoxxX%xuoXo\n", 1024);
  return (0);
 }
