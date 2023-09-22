@@ -21,12 +21,16 @@ sp_t sps[] = {
 {"d", print_integer},
 {"b", print_binary},
 {"r", print_reverse},
-{"R", print_rot13}
+{"R", print_rot13},
+{"x", print_hex_lower},
+{"X", print_hex_upper},
+{"o", print_octal},
+{"u", print_unsigned}
 };
 int i;
 
 i = 0;
-while (i < 7)
+while (i < 11)
 {
 if (*(sps[i].sp) == s)
 return (sps[i].f);

@@ -3,9 +3,13 @@
 #include "main.h"
 int main(void)
 {
-_printf("%r", "\nThis sentence is retrieved from va_args!");
- _printf("%R", "Guvf fragrapr vf ergevrirq sebz in_netf!\n");  
-_printf("Complete the sentence: You %R nothing, Jon Snow.\n", "xabj");
-_printf("Complete the sentence: You %R nothing, Jon Snow.\n", "");
+unsigned int ui;
+ui = (unsigned int)INT_MAX + 1024;
+_printf("Unsigned:[%u]\n", ui);
+    printf("Unsigned:[%u]\n", ui);
+_printf("Unsigned octal:[%o]\n", ui);
+printf("Unsigned octal:[%o]\n", ui);
+_printf("Unsigned hexadecimal:[%x, %X]\n", ui, ui);
+printf("Unsigned hexadecimal:[%x, %X]\n", ui, ui);
  return (0);
 }
