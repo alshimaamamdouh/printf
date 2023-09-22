@@ -14,7 +14,7 @@ char index = 0, num_digits = 0;
 int tempVariable = u32int_value;
 if (u8ptrbuf[0] == 'u')
 {
-if( u32int_value < 0)
+if (u32int_value < 0)
 {
 u32int_value = 0xffffffff +  u32int_value + 1;
 }

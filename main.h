@@ -6,6 +6,12 @@
 #include <stdlib.h>
 #include <stddef.h>
 
+/**
+ *struct sp - structure contains pointer to function
+ *
+ * @sp: character
+ * @f: pointer to function
+ */
 typedef struct sp
 {
 char *sp;
@@ -15,7 +21,7 @@ int (*f)(va_list);
 int _printf(const char *format, ...);
 char itoa_generic(char *u8ptrbuf, double u32int_value);
 int decToBinary(unsigned int n, char *binaryNum);
-int decTohexdecimal (unsigned int n, char *hexadecimalnum, int flag);
+int decTohexdecimal(unsigned int n, char *hexadecimalnum, int flag);
 int decToOctal(unsigned int n, char *octalNum);
 int putprin(char *t, long double dig, char fly, char *ss);
 int print_string(va_list args);
