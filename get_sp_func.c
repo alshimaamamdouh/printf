@@ -20,12 +20,13 @@ sp_t sps[] = {
 {"i", print_integer},
 {"d", print_integer},
 {"b", print_binary},
-{"r", print_reverse}
+{"r", print_reverse},
+{"R", print_rot13}
 };
 int i;
 
 i = 0;
-while (i < 6)
+while (i < 7)
 {
 if (*(sps[i].sp) == s)
 return (sps[i].f);
