@@ -5,7 +5,6 @@
 #include <unistd.h>
 #include <stdlib.h>
 #include <stddef.h>
-#include <stdint.h>
 /**
  *struct sp - structure contains pointer to function
  *

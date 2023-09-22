@@ -8,22 +8,30 @@
 */
 int print_pointer(va_list args)
 {
-size_t i;
-uintptr_t address = va_arg(args, uintptr_t);
-char * array_address;
-int num_of_ch = 0;
+unsigned int address;
+void *ptr;
+char array_address[50];
+int str_len, num_of_ch = 0;
+char ch, num;
+char *str = "(null)";
 
-array_address = malloc(sizeof(address));
-if (array_address == NULL)
-return (NULL);
+ptr = va_arg(args, void*);
+if (ptr == NULL)
+{
+str_len = 0;
+while (*(str + str_len) != '\0')
+str_len++;
+write(1, str, str_len);
+return (str_len);
+}
+address = (unsigned long int)ptr;
 
-for (i = 0; i < sizeof(address); i++) {
-array_address[i] = (char)((address >> (i * 8)) & 0xFF);
+ch = '0';
+num_of_ch  += write(1, &ch, 1);
+ch = 'x';
+num_of_ch  += write(1, &ch, 1);
 
-num_of_ch  += write(1, '0', 1);
-num_of_ch  += write(1, 'x', 1);
-
-
-free(array_address);
+num = decTohexdecimal(address, array_address, 0);
+num_of_ch = (write(1, array_address, num));
 return (num_of_ch);
 }
