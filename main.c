@@ -32,5 +32,11 @@ _printf("Unsigned:[%u]\n", ui);
     printf("%x + %x = %x\n", INT_MAX, INT_MAX, res);
     _printf("uuoxxX%xuoXo\n", 1024);
     printf("uuoxxX%xuoXo\n", 1024);
+    _printf("%u\n", 0);
+    printf("%u\n", 0);
+    _printf("%o\n", 0);
+    printf("%o\n", 0);
+    _printf("%x\n", 0);
+    printf("%x\n", 0);
  return (0);
 }

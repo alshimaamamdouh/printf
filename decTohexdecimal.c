@@ -34,7 +34,7 @@ if (j == 0)
 hexadecimalnum[0] = '0';
 hexadecimalnum[1] = '0';
 
-j = 2;
+j = 1;
 }
 
 return (j);
