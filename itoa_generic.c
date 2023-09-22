@@ -16,7 +16,8 @@ if (u8ptrbuf[0] == 'u')
 {
 if (u32int_value < 0)
 {
-u32int_value = 0xffffffff +  u32int_value + 1;
+num_digits = itoa_generic(&u8ptrbuf[0], ((unsigned int)u32int_value));
+return (num_digits);
 }
 }
 if (u32int_value < 0)

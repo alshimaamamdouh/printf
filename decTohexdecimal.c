@@ -20,7 +20,7 @@ else
 {
 s[j++] = 55 + remainder;
 if (flag == 0)
-s[j] += 0x20;
+s[j - 1] += 0x20;
 }
 n = n / 16;
 }
