@@ -18,6 +18,9 @@ len_string = 0;
 for (index_s = 0; *(s + index_s) != '\0'; index_s++)
 {
 len_string++;
+ch = s[index_s];
+if ((ch <= 122 && ch >= 97) || (ch <= 90 && ch >= 65))
+{
 for (index_l = 0; index_l < 56; index_l++)
 {
 if (*(s + index_s) == letters[index_l])
@@ -26,6 +29,11 @@ ch = r_letters[index_l];
 write(1, &ch, 1);
 break;
 }
+}
+}
+else
+{
+write(1, &ch, 1);
 }
 }
 return (len_string);
