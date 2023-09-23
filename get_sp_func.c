@@ -27,7 +27,7 @@ sp_t sps[] = {
 {"o", print_octal},
 {"u", print_unsigned},
 {"p", print_pointer},
-{"S" ,s_specifier}};
+{"S", s_specifier}};
 int i;
 
 i = 0;
