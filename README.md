@@ -16,3 +16,19 @@ as preprocessor macros. The actual implementation also depends
 on the compiler, as different compilers can have different layout 
 of the stack and how it pushes arguments on the stack.
 
+Printf working principle
+
+-Printf takes multiple arguments using vararg function.
+
+-Printf creates an internal buffer for constructing output string.
+
+-Now printf iterates through each characters of user string and copies 
+the character to the output string. Printf only stops at %. % means there is an argument to convert. 
+Arguments are in the form of char, int, long, float, double or string. 
+
+-It converts it to string and appends to output buffer. If the argument is string then it does a string copy.
+
+-Finally printf may reach at the end of user sting and it copies the entire buffer to the stdout file.
+
+
+
