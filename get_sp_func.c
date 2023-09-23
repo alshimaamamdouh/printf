@@ -26,11 +26,12 @@ sp_t sps[] = {
 {"X", print_hex_upper},
 {"o", print_octal},
 {"u", print_unsigned},
-{"p", print_pointer}};
+{"p", print_pointer},
+{"S" ,s_specifier}};
 int i;
 
 i = 0;
-while (i < 12)
+while (i < 13)
 {
 if (*(sps[i].sp) == s)
 return (sps[i].f);

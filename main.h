@@ -35,4 +35,5 @@ int print_hex_upper(va_list args);
 int print_octal(va_list args);
 int print_unsigned(va_list args);
 int print_pointer(va_list args);
+int s_specifier(va_list args);
 #endif
